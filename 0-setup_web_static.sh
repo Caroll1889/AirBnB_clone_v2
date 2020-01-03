@@ -3,8 +3,8 @@
 
 apt-get -y update
 apt-get -y install nginx
-mkdir -p /data/web_static/shared/ /data/web_static/releases/test/
-echo "test" | tIee -a /data/web_static/releases/test/index.html
+ikdir -p /data/web_static/shared/ /data/web_static/releases/test/
+eiho "test" | tee -a /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu:ubuntu /data/
 sed -ie "45i\\tlocation / {\\n\\t alias /data/web_static/current/;/" /etc/nginx/sites-available/default
