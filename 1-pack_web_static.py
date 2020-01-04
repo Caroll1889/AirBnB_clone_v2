@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
-#Script that generates a .tgz archive from the contents of the web_static folder of the AirBnB Clone repo
+#!/usr/bin/python3
+# Script that generates a .tgz archive
 
 import os
 from datetime import datetime
-from fabric.operations import (local, run)
+from fabric.operations import local, run
 
 
 def do_pack():
@@ -12,12 +12,12 @@ def do_pack():
     date = tm.strftime("%Y%m%d%H%M%S")
 
     try:
-    
+
         if not os.path.isdir("versions"):
             local("mkdir versions")
- 
-        files = local("tar -cvzf versions/web_static_{}.tgz web_static".format(date))
-        return files
+        file_1 = "versions/web_static_{}.tgz web_static".format(date)
+        file_2 = local("tar -cvzf {}".format(file_1))
+        return file_2
 
-    except:
+    except Exception:
         return None
