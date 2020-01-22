@@ -12,11 +12,12 @@ app = Flask(__name__)
 def states():
 
     var = storage.all('State')
-    return render_template('7-states_list.html', var))
+    print(var)
+    return render_template('7-states_list.html', var=var)
 
 
 @app.teardown_appcontext
-def Tear_Down():
+def Tear_Down(error):
     storage.close()
 
 
