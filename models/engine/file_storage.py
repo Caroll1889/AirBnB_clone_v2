@@ -29,7 +29,7 @@ class FileStorage:
             n_dict = {}
             for key, value in self.__objects.items():
                 if cls == type(value):
-                    n_dict = {key: value}
+                    n_dict[key] = value
             return n_dict
         return self.__objects
 
