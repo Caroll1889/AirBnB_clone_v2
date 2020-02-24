@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+##!/usr/bin/python3
 # Script that generates a .tgz archive
 
 import os
@@ -12,14 +12,14 @@ def do_deploy(archive_path):
     if not os.path.exists(archive_path):
         return False
     try:
-        base = os.path.basename('archive_path')
+        base = os.path.basename(archive_path)
         os.path.splitext(base)
         fileEx = os.path.splitext(base)[0]
         file2 = "/data/web_static/releases/"
-        file1 = "tmp/web_static_20170315003959.tgz"
+        file1 = "/tmp/web_static_20200224172428.tgz"
         put(archive_path, '/tmp/')
-        run('mkdir -p /data/web_static/release/{}'.format(fileEx))
-        run('tar -xzf {} -C {}{}'.format(file1, file2, fileEx))
+        run('mkdir -p /data/web_static/releases/{}'.format(fileEx))
+        run('tar -xzf {} -C {}{}/'.format(file1, file2, fileEx))
         run('rm {}'.format(file1))
         run('mv {}{}/web_static/* {}{}'.format(file2, fileEx, file2, fileEx))
         run('rm -rf {}{}/web_static'.format(file2, fileEx))
