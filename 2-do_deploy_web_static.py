@@ -1,5 +1,5 @@
 ##!/usr/bin/python3
-# Script that generates a .tgz archive
+"""Script that generates a .tgz archive"""
 
 
 import os
@@ -9,6 +9,7 @@ env.hosts = ['34.74.218.90', '35.229.122.165']
 
 
 def do_deploy(archive_path):
+    """deploy"""
 
     if not os.path.exists(archive_path):
         return False
